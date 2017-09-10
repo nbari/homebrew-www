@@ -4,7 +4,7 @@ class Www < Formula
   desc "static web server"
   homepage "https://github.com/nbari/www"
   url "https://github.com/nbari/www.git",
-      :tag => "0.3.1",
+      :tag => "1.0.0",
       :revision => "5bd382cdd2fefd4f8dbf70f3f0085ba7a411510e"
 
   head "https://github.com/nbari/www.git"
