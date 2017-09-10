@@ -1,9 +1,11 @@
+require "language/go"
+
 class Www < Formula
   desc "static web server"
   homepage "https://github.com/nbari/www"
   url "https://github.com/nbari/www.git",
       :tag => "0.3.1",
-      :revision => "4769c5370984f366ccd768c8e90ded344befdd77"
+      :revision => "5bd382cdd2fefd4f8dbf70f3f0085ba7a411510e"
 
   head "https://github.com/nbari/www.git"
 
@@ -16,12 +18,14 @@ class Www < Formula
 
   depends_on "go" => :build
 
+
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/nbari/www").install buildpath.children
+    Language::Go.stage_deps resources, buildpath/"src"
     cd "src/github.com/nbari/www" do
-      system "make"
-      bin.install "www"
+      ldflags = "-s -w -X main.version=#{version}"
+      system "go", "build", "-ldflags", ldflags, "-o", "#{bin}/www"
     end
   end
 
