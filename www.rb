@@ -2,8 +2,8 @@ class Www < Formula
   desc "HTTPS? static web server"
   homepage "https://github.com/nbari/www"
   url "https://github.com/nbari/www.git",
-      :tag => "1.1.1",
-      :revision => "88e655e483e714d45fdcca1a5054c69d04cab75c"
+      :tag => "2.0.0",
+      :revision => "057958f4d73629d886801dc2c24c6c0f268861ac"
 
   head "https://github.com/nbari/www.git"
 
